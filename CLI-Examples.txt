@@ -13,7 +13,7 @@ microk8s kubectl get pods --show-labels
 
 deploy
 ------------
-microk8s.kubectl apply -f simple-flask-service.yaml
+microk8s kubectl apply -f simple-flask-service.yaml
 
 
 Remove deployment and services

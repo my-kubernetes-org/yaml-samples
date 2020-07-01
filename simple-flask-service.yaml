@@ -1,5 +1,7 @@
 #-------------------------------------
-# to run on local : http://[IP address of service from get all command]:8080
+# to run on local host : http://[IP address of service from get all command]:8080
+# to run from web, attach external IP
+# microk8s kubectl patch svc service/my-flask -p '{"spec":{"externalIPs":["192.168.0.194"]}}'
 #-------------------------------------
 apiVersion: apps/v1 
 kind: Deployment
