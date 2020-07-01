@@ -1,19 +1,19 @@
 apiVersion: apps/v1 
 kind: Deployment
 metadata:
-  name: flask-deployment # name of deployment
+  name: my-flask # name of deployment
 spec:
   selector:
     matchLabels:
-      app: flask-app
+      run: my-flask
   replicas: 1 # how many pods replicas
   template:
     metadata:
       labels:
-        app: flask-template
+        run: my-flask
     spec:
       containers:
-      - name: flask-container
+      - name: my-flask
         image: tomday/flask-hello:latest
         ports:
         - containerPort: 5000
