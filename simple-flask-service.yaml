@@ -22,12 +22,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-    name: my-flask-service
+    name: my-flask
     labels:
-      run: my-flask-service
+      run: my-flask
 spec:
     ports:
     - port: 5000
       protocol: TCP
     selector:
-      run: flask-app
+      run: my-flask
