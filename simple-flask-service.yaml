@@ -5,15 +5,15 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: flask
+      app: flask-app
   replicas: 1 # how many pods replicas
   template:
     metadata:
       labels:
-        app: flask
+        app: flask-template
     spec:
       containers:
-      - name: flask
+      - name: flask-container
         image: tomday/flask-hello:latest
         ports:
         - containerPort: 5000
