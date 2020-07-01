@@ -1,3 +1,6 @@
+#-------------------------------------
+# to run on local : http://[IP address of service from get all command]:8080
+#-------------------------------------
 apiVersion: apps/v1 
 kind: Deployment
 metadata:
@@ -6,7 +9,7 @@ spec:
   selector:
     matchLabels:
       run: my-flask
-  replicas: 2 # how many pods replicas
+  replicas: 2 # how many pods replications
   template:
     metadata:
       labels:
@@ -27,7 +30,7 @@ metadata:
 spec:
     type: LoadBalancer
     ports:
-    - port: 80
+    - port: 8080
       targetPort: 5000
       protocol: TCP
     selector:

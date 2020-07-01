@@ -21,3 +21,7 @@ Remove deployment
 microk8s kubectl delete pods --all
 microk8s kubectl delete services --all
 microk8s kubectl delete  [deployment name as listed in get all command above]
+
+Access the web app
+--------------------
+microk8s kubectl get all --> see the IP address of the service --> http://[IP address]:port
