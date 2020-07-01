@@ -1,19 +1,19 @@
 apiVersion: apps/v1 
 kind: Deployment
 metadata:
-  name: nginx-deployment # name of deployment
+  name: flask-deployment # name of deployment
 spec:
   selector:
     matchLabels:
-      app: nginx
-  replicas: 2 # tells deployment to run 2 pods matching the template
+      app: flask
+  replicas: 1 # how many pods replicas
   template:
     metadata:
       labels:
-        app: nginx
+        app: flask
     spec:
       containers:
-      - name: nginx
-        image: nginx:1.14.2
+      - name: flask
+        image: tomday/flask-hello:latest
         ports:
-        - containerPort: 80
+        - containerPort: 5000
