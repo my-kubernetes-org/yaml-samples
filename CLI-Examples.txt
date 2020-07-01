@@ -1,0 +1,12 @@
+
+export PATH=$PATH:/snap/bin
+
+status
+---------
+microk8s kubectl status
+microk8s kubectl status
+
+deploy
+------------
+
+microk8s kubectl apply -f https://github.com/my-kubernetes-org/yaml-samples/blob/master/simple-flask-service.yaml
