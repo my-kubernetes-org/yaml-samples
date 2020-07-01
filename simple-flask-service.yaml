@@ -17,8 +17,7 @@ spec:
         image: tomday/flask-hello:latest
         ports:
         - containerPort: 5000
-
-
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -26,8 +25,10 @@ metadata:
     labels:
       run: my-flask
 spec:
+    type: LoadBalancer
     ports:
-    - port: 5000
+    - port: 80
+      targetPort: 5000
       protocol: TCP
     selector:
       run: my-flask
