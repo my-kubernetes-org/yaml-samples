@@ -20,5 +20,4 @@ Remove deployment
 -------------------
 Microk8s kubectl delete pods --all
 Microk8s kubectl delete services --all
-
 Microk8s kubectl delete  [deployment name as listed in get all command above]
