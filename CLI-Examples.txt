@@ -16,8 +16,9 @@ deploy
 microk8s.kubectl apply -f simple-flask-service.yaml
 
 
-Remove deployment
--------------------
+Remove deployment and services
+-------------------------------
+microk8s kubectl delete all --all 
 microk8s kubectl delete pods --all
 microk8s kubectl delete services --all
 microk8s kubectl delete  [deployment name as listed in get all command above]
