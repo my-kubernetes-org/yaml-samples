@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       run: my-flask
-  replicas: 1 # how many pods replicas
+  replicas: 2 # how many pods replicas
   template:
     metadata:
       labels:
