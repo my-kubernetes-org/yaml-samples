@@ -24,7 +24,7 @@ kind: Service
 metadata:
     name: my-flask-service
     labels:
-    run: my-flask-service
+      run: my-flask-service
 spec:
     ports:
     - port: 5000
