@@ -1,6 +1,6 @@
 #-------------------------------------
 # to run on local host : http://[IP address of service from get all command]:8080
-# to run from web, attach external IP
+# to run from web, attach external IP: (didnt try yet)
 # microk8s kubectl patch svc pmy-flask -p '{"spec":{"externalIPs":["192.168.0.194"]}}'
 #-------------------------------------
 apiVersion: apps/v1 

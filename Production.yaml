@@ -1,0 +1,188 @@
+# crontab web site: https://crontab.guru/
+
+# -------- run once examples ---------
+kind: Pod
+apiVersion: v1
+metadata:
+ name: hello-world-run-once
+spec:
+ containers:
+   - name: hello-world-run-once
+     image: hello-world
+ restartPolicy: Never
+
+---
+
+kind: Pod
+apiVersion: v1
+metadata:
+ name: devopsexample-run-once
+spec:
+ containers:
+   - name: devopsexample-run-once
+     image: syneroncontainerregistry.azurecr.io/devopsexample1linux:latest
+ restartPolicy: Never
+
+
+---
+kind: CronJob
+apiVersion: batch/v1beta1
+metadata:
+  name: devopsexample-batch
+spec:
+ schedule: "1 4 * * *"
+ concurrencyPolicy: Forbid
+ jobTemplate:
+   spec:
+     template:
+       spec:
+         containers:
+         - name: devopsexample-batch
+           image: syneroncontainerregistry.azurecr.io/devopsexample1linux:latest
+           imagePullPolicy: Always
+         restartPolicy: Never
+---
+kind: CronJob
+apiVersion: batch/v1beta1
+metadata:
+  name: thumbnails-creator
+spec:
+ schedule: "15 4 * * *"
+ concurrencyPolicy: Forbid
+ jobTemplate:
+   spec:
+     template:
+       spec:
+         containers:
+         - name: thumbnails-creator
+           image: syneroncontainerregistry.azurecr.io/batch_thumbnailscreatorlinux
+           imagePullPolicy: Always
+         restartPolicy: Never
+---
+kind: CronJob
+apiVersion: batch/v1beta1
+metadata:
+  name: lvm-processor
+spec:
+ schedule: "30 4 * * *"
+ concurrencyPolicy: Forbid
+ jobTemplate:
+   spec:
+     template:
+       spec:
+         containers:
+         - name: lvm-processor
+           image: syneroncontainerregistry.azurecr.io/batch_lvmfilesprocessorlinux
+           imagePullPolicy: Always
+         restartPolicy: Never
+---
+kind: CronJob
+apiVersion: batch/v1beta1
+metadata:
+  name: handle-image-state
+spec:
+ schedule: "00 1 * * *"
+ concurrencyPolicy: Forbid
+ jobTemplate:
+   spec:
+     template:
+       spec:
+         containers:
+         - name: handle-image-state
+           image: syneroncontainerregistry.azurecr.io/batch_handleimagestateslinux
+           imagePullPolicy: Always
+         restartPolicy: Never
+#---
+#kind: CronJob
+#apiVersion: batch/v1beta1
+#metadata:
+#  name: ftz-utilization-report
+#spec:
+# schedule: "0 5 * * *"
+# concurrencyPolicy: Forbid
+# jobTemplate:
+#   spec:
+#     template:
+#       spec:
+#         containers:
+#         - name: ftz-utilization-report
+#           image: syneroncontainerregistry.azurecr.io/batch_ftzutilizationreportgeneratorlinux
+#           imagePullPolicy: Always
+#         restartPolicy: Never
+---
+kind: CronJob
+apiVersion: batch/v1beta1
+metadata:
+  name: censor-faces
+spec:
+ schedule: "00 4 * * *"
+ concurrencyPolicy: Forbid
+ jobTemplate:
+   spec:
+     template:
+       spec:
+         containers:
+         - name: censor-faces
+           image: syneroncontainerregistry.azurecr.io/batch_censorimagefaceslinux
+           imagePullPolicy: Always
+         restartPolicy: Never
+
+---
+kind: CronJob
+apiVersion: batch/v1beta1
+metadata:
+  name: recognize-faces-1
+spec:
+ schedule: "00 2 * * *"
+ jobTemplate:
+   spec:
+     template:
+       spec:
+         containers:
+         - name: recognize-faces-1
+           image: syneroncontainerregistry.azurecr.io/batch_recognizeimagefaceslinux
+           imagePullPolicy: Always
+         restartPolicy: Never
+
+#---
+#kind: CronJob
+#apiVersion: batch/v1beta1
+#metadata:
+#  name: recognize-faces-2
+#spec:
+# schedule: "00 11 * * *"
+# jobTemplate:
+#   spec:
+#     template:
+#       spec:
+#         containers:
+#         - name: recognize-faces-2
+#           image: syneroncontainerregistry.azurecr.io/batch_recognizeimagefaceslinux
+#           imagePullPolicy: Always
+#         restartPolicy: Never
+
+
+# -------- weekly cron jobs ---------
+---
+kind: CronJob
+apiVersion: batch/v1beta1
+metadata:
+  name: images-for-reports 
+  #images for zensar
+spec:
+ #runs at 01:00 on every Monday
+ schedule: "0 1 * * 1"
+ concurrencyPolicy: Forbid
+ jobTemplate:
+   spec:
+     template:
+       spec:
+         containers:
+         - name: images-for-reports
+           image: syneroncontainerregistry.azurecr.io/batch_imagesforreportslinux
+           imagePullPolicy: Always
+         restartPolicy: Never
+
+# -------- to do ---------
+# syneroncontainerregistry.azurecr.io/batch_recognizeimagefaceslinux
+
