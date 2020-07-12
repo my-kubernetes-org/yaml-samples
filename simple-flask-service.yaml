@@ -32,7 +32,7 @@ metadata:
 spec:
     type: LoadBalancer
     ports:
-    - port: 8080 #16443 # external port
+    - port: 8080 # external port
       targetPort: 5000 # internal port
       protocol: TCP
     selector:
