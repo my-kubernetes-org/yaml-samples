@@ -17,3 +17,11 @@
 
 
 microk8s.kubectl apply -f simple-flask-service.yaml
+
+# relevant links
+# ---------------------
+# https://github.com/ubuntu/microk8s/issues/421
+# https://github.com/ubuntu/microk8s/issues/389
+# https://github.com/ubuntu/microk8s/issues/383
+# https://microk8s.io/docs/addon-dashboard
+# https://logz.io/blog/getting-started-with-kubernetes-using-microk8s/
