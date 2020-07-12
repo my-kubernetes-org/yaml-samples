@@ -3,6 +3,11 @@ setup
 sudo su
 export PATH=$PATH:/snap/bin
 
+ready scripts
+----------------
+run create-flask.sh, get-all.sh, remove-all.sh
+see comments inside create-flask.sh
+
 status
 ---------
 microk8s kubectl get deployments // list only deployments
