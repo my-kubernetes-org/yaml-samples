@@ -31,3 +31,12 @@ microk8s kubectl delete  [deployment name as listed in get all command above]
 Access the web app
 --------------------
 microk8s kubectl get all --> see the IP address of the service --> http://[IP address]:port
+
+Enable microk8s dashboard
+----------------------------
+microk8s enable dashboard
+https://13.93.35.234:16443/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#/login
+get token with this:
+microk8s.kubectl -n kube-system get secret
+microk8s.kubectl -n kube-system describe secret default-token-{xxxxxx}
+
