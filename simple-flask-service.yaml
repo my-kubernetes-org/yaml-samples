@@ -37,5 +37,5 @@ spec:
       protocol: TCP
     selector:
       run: my-flask
-    externalIPs:
-      - 13.93.35.234  
+    #externalIPs:
+    #  - 13.93.35.234  
